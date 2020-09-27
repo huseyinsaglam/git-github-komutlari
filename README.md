@@ -1,0 +1,116 @@
+# git-github-komutlari
+git konfigurasyonu
+Öncelikle halihazırda bir tanımlama olup olmadığını kontrol edelim.
+	1- git config --list
+Komutu uyguladığımızda eğer bir tanımlama yapılmamışsa boş bir geri dönüş alırız. O halde kullanıcı tanımımızı yapalım.
+	1- git config --global user.name "username_ismi"
+	2- git config --global user.email "mail_adresi"
+=======================================================================================================================
+git projesi oluşturma
+ 1- dizinine gel
+ 2- git init  => komutlarını sıra ile çalıştır
+
+=======================================================================================================================
+dosyaları git reposunu ekleme
+	1- dizine gel
+	2- git add .
+	3- git commit -m "commit notu yaz"
+=======================================================================================================================
+git e atılan proje versiyonları listeleme
+	1- git log
+=======================================================================================================================
+git repomuzda herhangi bir degişiklik oldugu durumlarda 
+degişiklikleri gösterme yapar..
+yani çalışma dizini ile git reposu arasındaki farkı gösterir..
+	1- git status
+=======================================================================================================================
+git dosyalarında herhangi bir degişikligin ayrıntılarını göstermek için
+	1- git status => git dosyalrının durumunu görüntüle
+	2- git diff => git dosyaların degişikliginin ayrıntılarını görüntüle
+	   2a- git diff dosya_ismi => dosya ismi vererek git dosyaların degişikliginin ayrıntılarını görüntüle 
+=======================================================================================================================
+git dosyalarında silme işlemi için	
+	1- el ile dosya silme;
+		1a- dosyayı ilk silinecek olan dosyayı kendin el ile sil
+		1b- git status
+		1c- git rm dosya_ismi
+		1d- git commit -m "açıklama satırı"
+	2- git commitleri ile silme
+		2a- git rm dosya_ismi
+		2b- git commit -m "açıklama satırı" 
+	3- klasörü silme işlemi için
+		3a- git rm -r silenecek_klasör_ismi/
+		3b- git commit -m "açıklama satırı" 
+
+=======================================================================================================================
+git dosyalarında isim degiştirme işlemi için
+	1- el ile kendin isim degiştirme
+		1a- git add.  // dosyayı geçiş bölgesine alıyor rm ile aynı (add/rm)
+		1b- git status
+		1c- git commit -m "açıklama_satırı"
+	2- git commitleri ile isim degiştirme
+		2a- git mv degişecek_dosya_ismi yeni_dosya_ismi
+		2b- git commit -m "açıklama_satırı"
+
+=======================================================================================================================
+git dosya taşıma işlemi için
+	1- git mv taşınacak_dosya_ismi taşınacak_dosyanın_adı ( git mv deneme.txt dosyalar)
+        2- git commit -m "açıklama_satırı"
+=======================================================================================================================
+git'de yapılan degişiklikleri geri alma işlemi (çalışma dizini) için
+	1- git checkout -- degişikligi_alınacak_dosya_ismi 
+
+git'de yapılan degişiklikleri geri alma işlemi (çalışma dizini) için
+	1- git reset HEAD degişikligi_alınacak_dosya_ismi 
+	2- git checkout -- degişikligi_alınacak_dosya_ismi
+=======================================================================================================================
+git'de versiyon degiştirme işlemi için
+	1- git log => projenin versiyonlarını listeler
+	2- git checkout hangi_versiyona_geçmek_istiyorsan_onun_hash_code -- .
+	2- git commit -m "açıklama_satırı"
+=======================================================================================================================
+github proje gönderme
+	1- git remote add ekleyecegimiz_github_baglantının_takma_adı github_adresi
+		1a- komutun çalışıp çalışmadıgından emin olmak için => git remote 
+		EXAMPLE => git remote githubRepo url_adresi
+	2- git push -u github_baglantının_takma_adı master 
+		// u parametresi bütün dosyaları gönder demek
+        3- username & password gir
+
+=======================================================================================================================
+github branch işlemler
+	1- projedeki dalları listeleme 
+		1a- git branch
+	2- uzak repodaki dalları listeleme
+		2a- git branch --all
+	3- yeni branch açma
+		3a- git branch yeni_oluşturacagın_branch_ismi
+	4- Branch ler arası geçiş yapma
+		4a- git checkout geçecegin_branch_ismi
+	5- iki branch arasındaki degişiklikleri listeleme
+		5a-git diff ilk_branch_ismi ikinci_branch_ismi
+	6- iki branch birleştirme
+		6a- git merge birleştirme_yapacagın_branch_ismi
+
+=======================================================================================================================
+ .gitignore = git tarafından takip edilmesini istemedigimiz dosyaları gizler
+	1- cat >> .gitignore
+	2- ardından takip_edilmesini_istemedigi_dosya_ismi
+	3- enter basıp ctrl+c kombinasyonu ile dosyayi kapama işlemi yap
+	4- cat .ignore => takip_edilmesini_istemedigi_dosya_isimlerini gösterir
+	5- gedit .gitignore => gitignore dosya içerisini açıyor
+	6- Eger klasorü gitignore yapmak istiyorsak
+		6a- gedit .gitignore 
+		6b- klasorün_ismi/*
+	7- Eger klasorün içerisinden bir tanesinin .gitignore yapmak istemiyorsak
+		7a- gedit .gitignore 
+		7b- klasorün_ismi/*
+		7c- !klasorün_ismi/gitignore_yapmak_istemedigimiz_dosya_ismi
+=======================================================================================================================
+Uzak depoda bulunan tüm değişiklikleri yerel çalışma dizinine birleştirmek için çekme komutu
+	1- git pull
+=======================================================================================================================
+github dan dosya çekme komutu
+	1- git clone url_adresi
+=======================================================================================================================
+

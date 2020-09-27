@@ -1,4 +1,6 @@
 # git-github-komutlari
+
+
 git konfigurasyonu
 Öncelikle halihazırda bir tanımlama olup olmadığını kontrol edelim.
 	1- git config --list
